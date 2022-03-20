@@ -68,7 +68,7 @@ function createEngineer() {
         {
             name: "github", 
             type: "input",
-            message: "enter engineer's github",
+            message: "enter engineer's github username",
         },
         {
             name: "newEmp", 
@@ -167,7 +167,7 @@ function getMenu() {
     })
 }
 
-const generateHtml = ({ name, id, email, office }) => {
+const generateHtml = () => {
     return `<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -181,8 +181,10 @@ const generateHtml = ({ name, id, email, office }) => {
     </head>
     <body>
 
-    <h1>Team Profile Generator</h1>
+    <header class="header" style="text-align: center; padding: 1rem; background-color: aquamarine;"><h1>Team Profile Generator</h1></header>
+    <section class="p-1-5 section-style" style="padding: 1.5rem; flex-wrap: wrap; display: flex; grid-gap: 1rem; justify-content: center;">
     ${empCard()}
+    </section>
     <script src="./scripts/index.js"></script>
     </body>
     </html>`;
@@ -193,21 +195,21 @@ const empCard = () => {
 
     employees.forEach((employee) => {
         employeeCard += `
-    <section>
-        <div class="card" style="width: 18rem;">
+        <section class="p-1-5 section-style" style="padding: 1.5rem; flex-wrap: wrap; display: flex; grid-gap: 1rem; justify-content: center;">
+        <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+            <h2 class="card-header">
+                ${employee.getName()}
+            </h2>
             <div class="card-body">
-                <h2 class="card-title">
-                    ${employee.getName()}
-                </h2>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">${employee.getId()}</li>
-                    <li class="list-group-item">${employee.getEmail()}</li>
+                    <li class="list-group-item">ID: ${employee.getId()}</li>
+                    <li class="list-group-item"><a href="mailto:${employee.getEmail()}">${employee.getEmail()}</a></li>
                     ${employee.office? `<li class="list-group-item">${employee.office}</li>`:`<div style="display:none;"></div>`}
                     ${employee.school? `<li class="list-group-item">${employee.school}</li>`:`<div style="display:none;"></div>`}
-                    ${employee.github? `<li class="list-group-item">${employee.github}</li>`:`<div style="display:none;"></div>`}
+                    ${employee.github? `<li class="list-group-item"><a href="https://github.com/${employee.github}" target="_blank">${employee.github}</a></li>`:`<div style="display:none;"></div>`}
                 </ul>
                 <p class="card-text">
-                    title
+                    ${employee.getRole()}
                 </p>
             </div>
         </div>

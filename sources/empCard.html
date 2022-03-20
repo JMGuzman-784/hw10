@@ -10,15 +10,25 @@
 </head>
 <body>
 
-    <div>
-        manager card here
-    </div>
-    <div>
-        engineer card here
-    </div>
-    <div>
-       intern card here
-    </div>
+    <section class="p-1-5 section-style" style="padding: 1.5rem; flex-wrap: wrap; display: flex; grid-gap: 1rem; justify-content: center;">
+        <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+            <h2 class="card-header">
+                ${employee.getName()}
+            </h2>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">ID: ${employee.getId()}</li>
+                    <li class="list-group-item"><a href="mailto:${employee.getEmail()}">${employee.getEmail()}</a></li>
+                    ${employee.office? `<li class="list-group-item">${employee.office}</li>`:`<div style="display:none;"></div>`}
+                    ${employee.school? `<li class="list-group-item">${employee.school}</li>`:`<div style="display:none;"></div>`}
+                    ${employee.github? `<li class="list-group-item"><a href="https://github.com/${employee.github}" target="_blank">${employee.github}</a></li>`:`<div style="display:none;"></div>`}
+                </ul>
+                <p class="card-text">
+                    ${employee.getRole()}
+                </p>
+            </div>
+        </div>
+    </section>
 
     <script src="./scripts/index.js"></script>
     </body>
