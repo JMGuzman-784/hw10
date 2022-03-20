@@ -6,8 +6,11 @@ This repo/code has the ability for the user to generate a Team Profile. User wou
 
 ## Preview
 
-To view how to run the code below is a YouTube Video walktrough.
+* To view how to run the code below is a YouTube Video walktrough.
 [Team Profile Generator](https://www.youtube.com/watch?v=Qfh0r-xA6_4)
+
+* Below is an image preview 
+![Team Profile Generator](./sources/images/hw10_preview.png)
 
 ## Link to Code
 
